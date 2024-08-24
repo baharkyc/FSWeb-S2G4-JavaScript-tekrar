@@ -50,8 +50,9 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(cemberinYaricapi) {
+  const cemberinCevresi = 2 * pi * cemberinYaricapi;
+  return cemberinCevresi;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +65,9 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(cemberinYaricapi, pi) {
+  const cemberinAlani = pi * Math.pow(cemberinYaricapi,2);
+  return cemberinAlani;
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -97,32 +99,49 @@ let ucetambolunenler,
   siralisayilar,
   tekraredensayilar;
 
-// 3a çözümü
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
+ucetambolunenler = [];
+for(let i = 0; i < sayilar.length; i++) {
 
-/* kodlar buraya */
+  if(enkucuk > sayilar[i]) {
+    enkucuk = sayilar[i];
+  }
+  if(enbuyuk > sayilar[i]) {
+    enbuyuk = sayilar[i];
+  }
+}
 
-// 3b çözümü:
+sayilar.forEach(sayi => {
+  ucetambolunenler.push(sayi);
+});
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, currentSayi) => {
+  return toplam + currentSayi;
+},0)
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 
-// 3c çözümü:
+siralisayilar = besyuzdenkucuksayilar.sort((a,b) => a-b);
 
-/* kodlar buraya */
 
-// 3d çözümü
 
-/* kodlar buraya */
+const sayilarObj = {}
 
-// 3e çözümü
+for(let i = 0; i < sayilar.length; i++) {
+  const sayi = sayilar[i];
 
-/* kodlar buraya */
+  if(sayilarObj[sayi] === undefined) { //sayı, obje içerisinde yok ise
+    sayilarObj[sayi] = 1; // bir adet var olarak değer atadık
+  } else {
+    sayilarObj[i] += 1; //var ise değeri +1 yaptık
+  }
+}
+ 
+for(key in sayilarObj) {
+  tekraredensayilar.push(`${key} sayısı ${sayilarObj[key]} kere tekrar edilmiştir`);
+}
 
-// 3f çözümü
-
-/* kodlar buraya */
-
-/*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
-
+//
 function sa() {
   console.log("Kodlar çalışıyor");
   return "as";
